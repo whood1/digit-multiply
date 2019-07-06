@@ -1,24 +1,18 @@
 import random
 
-def generate_numbers(user_num):
 
-	number = ''
-	return_list = []
-	for x in range(user_num):
-		length = random.randint(1, 10)
-		for y in range(length):
-			r = random.randint(1,10)
-			number = (str(number), str(r))
-		return_list[x] = (number)
-	return return_list
+class RandomNumGen:
+    def __init__(self):
+        self.x = 2
 
+    # Generates list of random numbers
+    def gen(self, amount):
+        number_list = []
 
-		
+        # For the number of numbers we will generate
+        for x in range(amount):
+            number = random.choice(range(2, 100000000000000))
+            number_list.append(number)
 
-user_num = input('Enter the number of numbers youd like to try: \n')
+        return number_list
 
-user_num = int(user_num)
-
-num_list = generate_numbers(user_num)
-
-print(num_list)

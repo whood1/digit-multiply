@@ -1,18 +1,40 @@
-user_num = input('Enter a number: \n')
+from random_num_gen import RandomNumGen
 
-counter = 0
+print("[1] Enter a number\n[2] Generate a number\n")
 
-while len(str(user_num)) != 1:
+choice = int(input("Your Choice: "))
 
-    new_num = 1
-    int(new_num)
-    counter += 1
+num_list = []
+more_than_four = []
 
-    for digit in str(user_num):
-        x = int(digit)
-        new_num = new_num * x
+if choice == 1:
+    num_list.append(input('Enter a number: \n'))
 
-    user_num = new_num
-    print('New number: ', user_num)
+if choice == 2:
+    amount = int(input("Enter how many numbers to generate and try: \n"))
+    r = RandomNumGen()
+    num_list = r.gen(amount)
 
-print("Number of Iterations: ", counter)
+for x in num_list:
+    original_number = x
+    counter = 0
+    print('TESTING: ', x)
+    while len(str(x)) != 1:
+
+        new_num = 1
+        int(new_num)
+        counter += 1
+
+        for digit in str(x):
+            x = int(digit)
+            new_num = new_num * x
+
+        x = new_num
+        print('New number: ', x)
+
+    if counter > 8:
+        more_than_four.append(original_number)
+    print("Number of Iterations: ", counter, '\n')
+
+print("These numbers have more than 8")
+print(more_than_four)
