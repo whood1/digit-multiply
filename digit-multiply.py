@@ -1,4 +1,12 @@
+import datetime
+
 from random_num_gen import RandomNumGen
+
+import numpy as np
+
+import pandas as pd
+
+d = datetime.datetime.today()
 
 print("[1] Enter a number\n[2] Generate a number\n")
 
@@ -32,9 +40,16 @@ for x in num_list:
         x = new_num
         print('New number: ', x)
 
-    if counter > 8:
-        more_than_four.append(original_number)
+    if counter > 3:
+        vector = [original_number, counter]
+        more_than_four.append(vector)
     print("Number of Iterations: ", counter, '\n')
 
-print("These numbers have more than 8")
+print("These numbers have more than 4")
+print('Date: ' + str(d))
+print('List of lists: \n')
 print(more_than_four)
+
+ndArr = np.array(more_than_four)
+print('2d Array: ')
+print(ndArr)
